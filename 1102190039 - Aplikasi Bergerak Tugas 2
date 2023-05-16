@@ -20,3 +20,57 @@ void main() {
         ),
       )));
 }
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(child: Text(widget.title)),
+      ),
+      body: Center(
+        child: Column(
+          children: <Widget>[
+            const TextField(
+              decoration: InputDecoration(labelText: "Username"),
+            ),
+            const TextField(
+              decoration: InputDecoration(labelText: "Password"),
+              obscureText: true,
+            ),
+            Icon(Icons.desktop_mac_rounded),
+            TextButton(
+                onPressed: () {},
+                child: Container(
+                  height: 30,
+                  width: 70,
+                  decoration: BoxDecoration(color: Colors.blue),
+                  child: Center(
+                      child: Text(
+                    "Login",
+                    style: TextStyle(color: Colors.white),
+                  )),
+                ))
+          ],
+        ),
+      ),
+    );
+  }
+}
