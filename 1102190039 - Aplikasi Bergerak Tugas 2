@@ -2,75 +2,33 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-      title: 'Halo Dunia',
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Hellow World!'),
-        ),
-        body: Center(
-          child: Text(
-            'Hello World!',
-            textDirection: TextDirection.ltr,
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {},
+            child: const Icon(Icons.bug_report),
           ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          tooltip: 'Random',
-          child: Icon(Icons.refresh),
-          onPressed: null,
-        ),
-      )));
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Center(child: Text(widget.title)),
-      ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            const TextField(
-              decoration: InputDecoration(labelText: "Username"),
+          body: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                const TextField(
+                  // obscureText: true,
+                  decoration: InputDecoration(labelText: 'Username'),
+                ),
+                const TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(labelText: 'Password'),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                ElevatedButton(onPressed: () {}, child: const Text('Login'))
+              ],
             ),
-            const TextField(
-              decoration: InputDecoration(labelText: "Password"),
-              obscureText: true,
-            ),
-            Icon(Icons.desktop_mac_rounded),
-            TextButton(
-                onPressed: () {},
-                child: Container(
-                  height: 30,
-                  width: 70,
-                  decoration: BoxDecoration(color: Colors.blue),
-                  child: Center(
-                      child: Text(
-                    "Login",
-                    style: TextStyle(color: Colors.white),
-                  )),
-                ))
-          ],
-        ),
-      ),
-    );
-  }
+          ),
+          appBar: AppBar(
+              title: const Center(
+            child: Text("Aplikasi Widget"),
+          )))));
 }
